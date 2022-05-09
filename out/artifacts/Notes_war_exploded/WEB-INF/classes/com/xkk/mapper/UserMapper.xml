@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- map的约束文件-->
+<!-- namespace 命名空间 防止id冲突找不到正确的id-->
+<!-- id Mybatis是将sql语句写在xml文件中，以后session根据namesapce.id 合在一起获取sql-->
+<!-- 在jdbc中，sql语句使用?作占位符,但在mybatis #{id}-->
+<mapper namespace="com.xkk.mapper.UserMapper">
+    <update id="updateActive" parameterType="object">
+        update user set active=#{active} where id=#{id}
+    </update>
+    <select id="getInfo" resultType="com.xkk.domain.DO.UserDO" parameterType="object">
+        select name, email, active, image from user where id = #{id}
+    </select>
+
+    <select id="login" resultType="com.xkk.domain.DO.LoginDO" parameterType="object">
+        select id, name,email,flag,image from user where name = #{account} and password = #{password}
+    </select>
+    <select id="logins" resultType="com.xkk.domain.DO.LoginsDO">
+        select count(id) from user where active = 1
+    </select>
+</mapper>

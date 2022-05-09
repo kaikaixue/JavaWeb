@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xkk.mapper.NoteMapper">
+    <insert id="addNote" parameterType="com.xkk.bean.DTO.AddNoteDTO">
+        insert into t_note (title, author, content) values (#{title}, #{author}, #{content})
+    </insert>
+    <delete id="delNoteById" parameterType="object">
+        delete
+        from t_note
+        where id = #{id};
+    </delete>
+    <select id="getNoteLikeSize" resultType="com.xkk.bean.DO.NoteTotalDO" parameterType="object">
+        select count(id) as total from t_note where #{like} like concat('%', #{parameter}, '%')
+    </select>
+    <select id="getAllNoteList" resultType="com.xkk.bean.DO.NoteDO" parameterType="object">
+        select * from t_note limit #{page}, #{pageSize}
+    </select>
+    <select id="getAllNoteSize" resultType="com.xkk.bean.DO.NoteTotalDO">
+        select count(id) as total from t_note where 1 = 1
+    </select>
+    <select id="getNodeLikeList" resultType="com.xkk.bean.DO.NoteDO" parameterType="object" >
+        select * from t_note where #{like} like concat('%', #{parameter}, '%') limit #{page}, #{pageSize}
+    </select>
+
+</mapper>

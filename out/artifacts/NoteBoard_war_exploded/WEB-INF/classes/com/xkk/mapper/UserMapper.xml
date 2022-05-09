@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xkk.mapper.UserMapper">
+    <delete id="delUser">
+        delete
+        from t_user
+        where id = #{id};
+    </delete>
+    <select id="getInfo" resultType="com.xkk.bean.DO.UserDO">
+        select name,email,active,image  from t_user where id = #{id};
+    </select>
+
+    <select id="login" resultType="com.xkk.bean.DO.LoginDO" parameterType="object">
+        select id, name, email, flag, image
+        from t_user
+        where name = #{account}
+          and password = #{password}
+    </select>
+
+    <select id="logins" resultType="com.xkk.bean.DO.LoginsDO">
+        select count(id) from t_user where active = 1
+    </select>
+    <select id="findActive" resultType="java.lang.String">
+        select name from t_user where active = 1
+    </select>
+    <select id="findAllUser" resultType="com.xkk.bean.DO.UserListDO">
+        select id as userId, name, email, flag
+        from t_user;
+    </select>
+
+    <update id="updateActive" parameterType="object">
+        update t_user
+        set active=#{active}
+        where id = #{id}
+    </update>
+    <update id="updateAvatar" parameterType="object">
+        update t_user set image = #{avatar} where id = #{id}
+    </update>
+</mapper>
