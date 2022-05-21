@@ -133,7 +133,7 @@
                     "<td>" + noteDO.getTitle() + "</td>" +
                     "<td>" + noteDO.getAuthor() + "</td>" +
                     "<td>" + noteDO.getContent() + "</td>" +
-                    "<td><span onclick=del(" + noteDO.getId() + ")>删除</span></td></tr>";
+                    "<td><a href=\"/NoteBoard/view/updateNote.jsp?id=" + noteDO.getId() + "\">更新</a> |<span onclick=del(" + noteDO.getId() + ")>删除</span></td></tr>";
         }
 
         out.print(temp);

@@ -1,0 +1,23 @@
+.main {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px;
+    width: 400px;
+}

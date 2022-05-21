@@ -4,13 +4,16 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.xkk.mapper.UserMapper">
+    <insert id="logon" parameterType="object">
+        insert into t_user (name, password, email, image, flag) values (#{account}, #{password}, #{email}, #{avatar}, #{flag})
+    </insert>
     <delete id="delUser">
         delete
         from t_user
         where id = #{id};
     </delete>
     <select id="getInfo" resultType="com.xkk.bean.DO.UserDO">
-        select name,email,active,image  from t_user where id = #{id};
+        select id,name,email,active,image  from t_user where id = #{id};
     </select>
 
     <select id="login" resultType="com.xkk.bean.DO.LoginDO" parameterType="object">

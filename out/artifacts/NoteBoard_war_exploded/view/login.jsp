@@ -7,11 +7,38 @@
 <head>
     <meta charset="UTF-8">
     <title>用户登录</title>
+<%--  <link href="../css/global.css" rel="stylesheet" type="text/css"/>--%>
   <script type="text/javascript">
     function refresh() {
       location.reload();
     }
   </script>
+  <style>
+    .main {
+      width: 100%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      margin-left: 500px;
+      width: 500px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .input {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 20px;
+      width: 400px;
+    }
+  </style>
 </head>
 <%
   SqlSession sqlSession= MySessionUtils.getSession();

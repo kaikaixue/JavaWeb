@@ -12,7 +12,6 @@
         <module>BookCity</module>
         <module>Shopping</module>
         <module>Guess</module>
-        <module>Notes</module>
         <module>NoteBoard</module>
     </modules>
 

@@ -6,6 +6,7 @@ import com.xkk.bean.DO.LoginsDO;
 import com.xkk.bean.DO.UserDO;
 import com.xkk.bean.DO.UserListDO;
 import com.xkk.bean.DTO.LoginDTO;
+import com.xkk.bean.DTO.LogonDTO;
 import com.xkk.bean.DTO.UpdateActiveDTO;
 import com.xkk.bean.DTO.UpdateAvatarDTO;
 
@@ -20,4 +21,5 @@ public interface UserMapper {
     List<UserListDO> findAllUser();
     Integer delUser(Integer id);
     Integer updateAvatar(UpdateAvatarDTO updateAvatarDTO);
+    Integer logon(LogonDTO logonDTO);
 }

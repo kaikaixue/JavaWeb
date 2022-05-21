@@ -2,10 +2,7 @@ package com.xkk.mapper;
 
 import com.xkk.bean.DO.NoteDO;
 import com.xkk.bean.DO.NoteTotalDO;
-import com.xkk.bean.DTO.AddNoteDTO;
-import com.xkk.bean.DTO.AllNoteListDTO;
-import com.xkk.bean.DTO.NoteLikeListDTO;
-import com.xkk.bean.DTO.NoteLikeSizeDTO;
+import com.xkk.bean.DTO.*;
 
 import java.util.List;
 
@@ -16,4 +13,6 @@ public interface NoteMapper {
     NoteTotalDO getAllNoteSize();
     Integer addNote(AddNoteDTO addNoteDTO);
     Integer delNoteById(Integer id);
+    NoteDO getNoteById(Integer id);
+    Integer updateNote(UpdateNoteDTO updateNoteDTO);
 }

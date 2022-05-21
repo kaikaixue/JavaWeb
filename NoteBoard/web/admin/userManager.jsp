@@ -2,7 +2,8 @@
 <%@ page import="com.xkk.util.MySessionUtils" %>
 <%@ page import="com.xkk.mapper.UserMapper" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.xkk.bean.DO.UserListDO" %><%--
+<%@ page import="com.xkk.bean.DO.UserListDO" %>
+<%@ page import="com.xkk.listener.OnlineCounterListener" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 2022/5/9
@@ -47,12 +48,17 @@
 <%--    <%out.print(((HashMap)session.getAttribute("usernames")).size());%>--%>
     当前在线用户：
     <%
+        String username = "";
+        for (Integer key : OnlineCounterListener.LOGIN_USER.keySet()) {
+            username += OnlineCounterListener.LOGIN_USER.get(key) + " ";
+        }
+        out.print(username);
         SqlSession sqlSession = MySessionUtils.getSession();
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        List<String> nameList = userMapper.findActive();
-        for (String name : nameList) {
-            out.print(name + "  ");
-        }
+//        List<String> nameList = userMapper.findActive();
+//        for (String name : nameList) {
+//            out.print(name + "  ");
+//        }
     %>
 </div>
 <h1>
@@ -85,29 +91,6 @@
 
         out.print(temp);
     %>
-<%--    <tr>--%>
-<%--        <td colspan="5">--%>
-<%--            <a href="/mb/page/message.jsp?page1=0">首页</a>--%>
-<%--            <a href="/mb/page/message.jsp?page1=<%out.print(page1 - 1 <= 0 ? 0 : page1 - 1);%>">上一页</a>--%>
-<%--            <a href="/mb/page/message.jsp?page1=<%out.print(page1 + 1 >= total ? total : page1 + 1);%>">下一页</a>--%>
-<%--            <a href="/mb/page/message.jsp?page1=<%out.print(total);%>">最后页</a>--%>
-<%--            <select onchange="pagination(value)">--%>
-<%--                <%--%>
-<%--                    temp = "";--%>
-<%--                    for (int i = 0; i <= total; i++) {--%>
-<%--                        String selected = "";--%>
-
-<%--                        if (i == page1) {--%>
-<%--                            selected = "selected";--%>
-<%--                        }--%>
-
-<%--                        temp += "<option value='" + i + "'" + selected + ">" + (i + 1) + "/" + (total + 1) + "</option>";--%>
-<%--                    }--%>
-<%--                    out.print(temp);--%>
-<%--                %>--%>
-<%--            </select>--%>
-<%--        </td>--%>
-<%--    </tr>--%>
 </table>
 </body>
 </html>

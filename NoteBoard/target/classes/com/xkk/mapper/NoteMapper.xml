@@ -7,6 +7,9 @@
     <insert id="addNote" parameterType="com.xkk.bean.DTO.AddNoteDTO">
         insert into t_note (title, author, content) values (#{title}, #{author}, #{content})
     </insert>
+    <update id="updateNote" parameterType="object">
+        update t_note set author = #{author}, title = #{title}, content = #{content} where id = #{id}
+    </update>
     <delete id="delNoteById" parameterType="object">
         delete
         from t_note
@@ -22,7 +25,12 @@
         select count(id) as total from t_note where 1 = 1
     </select>
     <select id="getNodeLikeList" resultType="com.xkk.bean.DO.NoteDO" parameterType="object" >
-        select * from t_note where #{like} like concat('%', #{parameter}, '%') limit #{page}, #{pageSize}
+        select * from t_note where title like concat('%', #{parameter}, '%') limit #{page}, #{pageSize}
     </select>
+    <select id="getNoteById" resultType="com.xkk.bean.DO.NoteDO">
+        select * from t_note where id = #{id}
+    </select>
+
+
 
 </mapper>
