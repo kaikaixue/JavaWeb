@@ -13,6 +13,7 @@
         <module>Shopping</module>
         <module>Guess</module>
         <module>NoteBoard</module>
+        <module>review</module>
     </modules>
 
     <properties>

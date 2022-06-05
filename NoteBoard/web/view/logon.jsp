@@ -53,11 +53,11 @@
         <div class="input">
             头像
             <select name="image" onchange="change(value)">
-                <option value="/NoteBoard/image/avatar_1.jpg" selected>1</option>
-                <option value="/NoteBoard/image/avatar_2.jpg">2</option>
-                <option value="/NoteBoard/image/x.jpg">3</option>
+                <option value="../image/avatar_3.jpg" selected>1</option>
+                <option value="../image/avatar_4.jpg">2</option>
+<%--                <option value="/NoteBoard/image/x.jpg">3</option>--%>
             </select>
-            <img id="avatar" src="/NoteBoard/image/avatar_1.jpg" width="60" height="60"/>
+            <img id="avatar" src="../image/avatar_3.jpg" width="60" height="60"/>
         </div>
         <div class="input">
             密码
